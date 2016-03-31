@@ -85,8 +85,8 @@ COOKIES_ENABLED=True
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 
-SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-SCHEDULER_PERSIST = True
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# SCHEDULER_PERSIST = True
 #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
 # SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderQueue"
 #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderStack"
