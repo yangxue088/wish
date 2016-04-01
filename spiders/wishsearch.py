@@ -142,7 +142,7 @@ class WishSearchSpider(scrapy.Spider):
         text = '时间：{}\n关键词：{}\n前N个：{}\n（搜索结构按评价数量从多到少排列）'.format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                                                                  self.word, self.queue.maxsize)
 
-        content = MIMEText(text)
+        content = MIMEText(text, _charset='utf-8')
         msg.attach(content)
 
         attach = MIMEText(open(resultfile, 'rb').read(), 'base64', 'utf-8')
