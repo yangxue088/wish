@@ -4,7 +4,7 @@ import heapq
 class TopQueue:
     def __init__(self, maxsize):
         self.heap = []
-        self.maxsize = maxsize
+        self.maxsize = int(maxsize)
         heapq.heapify(self.heap)
 
     def put(self, item):
