@@ -107,7 +107,7 @@ class WishSearchSpider(scrapy.Spider):
 
                 rating_count = result.get('product_rating').get('rating_count')
 
-                tags = result.get('tags')
+                tags = ', '.join(tag['name'] for tag in result.get('tags'))
 
                 if self.queue.put((rating_count, url, tags)):
                     feed_continue = True
