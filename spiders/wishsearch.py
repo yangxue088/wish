@@ -106,7 +106,10 @@ class WishSearchSpider(scrapy.Spider):
                 urls.append(url)
 
                 rating_count = result.get('product_rating').get('rating_count')
-                if self.queue.put((rating_count, url)):
+
+                tags = result.get('tags')
+
+                if self.queue.put((rating_count, url, tags)):
                     feed_continue = True
 
             if not feed_ended and feed_continue:
@@ -118,7 +121,7 @@ class WishSearchSpider(scrapy.Spider):
 
                 search.sort(reverse=True)
 
-                self.process_result('{}    {}{}'.format(item[1], item[0], '\r\n') for item in search)
+                self.process_result('{}    {}    {}{}'.format(item[1], item[0], item[2], '\r\n') for item in search)
 
     def process_result(self, result):
         filename = '{}-{}.txt'.format(self.word,
