@@ -22,6 +22,9 @@ class WishLoginSpider(scrapy.Spider):
         self.password = password
         self.ajaxcount = ajaxcount
 
+        from scrapy import optional_features
+        optional_features.remove('boto')
+
     def start_requests(self):
         yield scrapy.Request('https://www.wish.com/', callback=self.login)
 
